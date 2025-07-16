@@ -15,7 +15,7 @@
     "start": "concurrently \"node backend/server.js\" \"next start\"",
     "lint": "next lint",
     "prepare": "husky install",
-    "preprocess":"node backend/utils/preprocess.min.js"
+    "preprocess": "node backend/utils/preprocess.min.js"
   },
   "dependencies": {
     "@floating-ui/react": "^0.25.0",
@@ -42,6 +42,7 @@
     "fs": "^0.0.1-security",
     "graphql": "^16.8.0",
     "graphql-request": "^6.1.0",
+    "html2canvas": "^1.4.1",
     "jsonwebtoken": "^9.0.2",
     "lodash-es": "^4.17.21",
     "mongoose": "^8.8.3",
