@@ -4,7 +4,7 @@ import { isMobile } from 'react-device-detect';
 import { AnimatePresence, motion, wrap } from 'framer-motion';
 import { LeftCircle } from '../svg/LeftCircle';
 import { useArcanaVotesRank } from '../../hooks/arcana';
-import { VoteRankItem } from '../../lib/types';
+import type { VoteRankItem } from '../../lib/types';
 import { openLink } from '../../utils';
 
 const variants = {
@@ -28,7 +28,7 @@ const variants = {
   },
 };
 
-function VoteRankItem({ index, data }: { index?: number; data?: VoteRankItem }) {
+function VoteRankItemComponent({ index, data }: { index?: number; data?: VoteRankItem }) {
   const rankImage = useMemo(() => {
     if (!index) return '/img/arcana/divine.webp';
     if (index === 1) return '/img/arcana/immortal_1.webp';
@@ -114,9 +114,9 @@ export default function VoteRank() {
             }}
             className="absolute grid h-full w-full grid-cols-3 gap-5 md:grid-cols-1"
           >
-            <VoteRankItem data={voteRankList[index * count]} index={index * count + 1} />
-            <VoteRankItem data={voteRankList[index * count + 1]} index={index * count + 2} />
-            <VoteRankItem data={voteRankList[index * count + 2]} index={index * count + 3} />
+            <VoteRankItemComponent data={voteRankList[index * count]} index={index * count + 1} />
+            <VoteRankItemComponent data={voteRankList[index * count + 1]} index={index * count + 2} />
+            <VoteRankItemComponent data={voteRankList[index * count + 2]} index={index * count + 3} />
           </motion.div>
         </AnimatePresence>
       </div>
