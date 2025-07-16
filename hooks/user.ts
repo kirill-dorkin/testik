@@ -17,9 +17,21 @@ import { useCallback, useMemo } from 'react';
 import ReactGA from 'react-ga4';
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import { useAccount, useDisconnect } from 'wagmi';
+import { setLocalStorage, getLocalStorage } from '@/utils/storage';
 import { useFetchUserNotSubmittedList, useMutationUserSubmittedList } from './dashboard/creation';
 import { useFetchArcanaInvitationInfo } from './dashboard/referral';
 import { useMutationTasksStatus } from './dashboard/task';
+
+export const saveConnectionState = (connector: string) => {
+  if (typeof window !== 'undefined') {
+    setLocalStorage('lastConnectedWallet', connector);
+  }
+};
+
+export const getLastConnectedWallet = () => {
+  if (typeof window === 'undefined') return null;
+  return getLocalStorage<string>('lastConnectedWallet');
+};
 
 export const useMutationLogin = () => {
   const setUserInfo = useSetRecoilState(userInfoAtom);
