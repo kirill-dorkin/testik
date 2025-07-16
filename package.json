@@ -15,7 +15,8 @@
     "start": "concurrently \"node backend/server.js\" \"next start\"",
     "lint": "next lint",
     "prepare": "husky install",
-    "preprocess":"node backend/utils/preprocess.min.js"
+    "preprocess": "node backend/utils/preprocess.min.js",
+    "test": "vitest"
   },
   "dependencies": {
     "@floating-ui/react": "^0.25.0",
@@ -73,6 +74,9 @@
     "wagmi": "^1.4.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/lodash-es": "^4.17.8",
     "@types/node": "18.14.0",
     "@types/qrcode": "^1.5.1",
@@ -84,11 +88,13 @@
     "eslint": "^8.46.0",
     "eslint-config-next": "^13.4.12",
     "husky": "^8.0.3",
+    "jsdom": "^22.1.0",
     "postcss": "^8.4.27",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.1"
   },
   "browserslist": {
     "production": [
