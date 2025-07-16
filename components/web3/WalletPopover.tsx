@@ -4,6 +4,7 @@ import WalletConnect from './WalletConnect';
 
 type WalletPopoverProps = {
   close?: () => void;
+  setIsConnecting?: (v: boolean) => void;
 };
 
 export enum WalletType {
@@ -11,10 +12,12 @@ export enum WalletType {
   DOWNLOAD = 'download',
 }
 
-function WalletPopover({}: WalletPopoverProps) {
+function WalletPopover({ setIsConnecting }: WalletPopoverProps) {
   const [type, setType] = useState<WalletType>(WalletType.CONNECT);
   const walletComponent = {
-    [WalletType.CONNECT]: <WalletConnect setWalletType={(type) => setType(type)} />,
+    [WalletType.CONNECT]: (
+      <WalletConnect setWalletType={(type) => setType(type)} setIsConnecting={setIsConnecting} />
+    ),
     [WalletType.DOWNLOAD]: <WalletDownload setWalletType={(type) => setType(type)} />,
   };
 
